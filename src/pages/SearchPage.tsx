@@ -3,35 +3,7 @@ import { Container } from '@mui/material';
 import coi from '../COI.json';
 import Search from '../components/Search';
 import Result from '../components/Result';
-
-interface SubClause {
-  SubClauseNo: string;
-  SubClauseDesc: string;
-  Status?: string;
-}
-
-interface Clause {
-  ClauseNo: string;
-  ClauseDesc: string;
-  SubClauses?: SubClause[];
-  Status?: string;
-  FollowUp?: string;
-}
-
-interface Explanation {
-  ExplanationNo: string;
-  Explanation: string;
-}
-
-interface Item {
-  ArtNo: string;
-  Name: string;
-  SubHeading?: string;
-  ArtDesc?: string;
-  Clauses?: Clause[];
-  Status?: string;
-  Explanations?: Explanation[];
-}
+import { Item } from '../types';
 
 const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -60,7 +32,7 @@ const App: React.FC = () => {
   }, [searchTerm]);
 
   return (
-    <Container>
+    <Container maxWidth= 'xl' style={{margin: "0", padding: "2em", height: "100%", width: "100vw", display: "flex", flexDirection: "column"}}>
       <Search onSearch={setSearchTerm} />
       <Result items={filteredResults} />
     </Container>
