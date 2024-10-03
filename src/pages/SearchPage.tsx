@@ -14,7 +14,8 @@ const App: React.FC = () => {
     return coi.filter((item: Item) => {
       const matchesName = item.Name.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesSubHeading = item.SubHeading?.toLowerCase().includes(searchTerm.toLowerCase()) || false; 
-      const matchesArtDesc = item.ArtDesc?.toLowerCase().includes(searchTerm.toLowerCase()) || false; 
+      const matchesArtDesc = item.ArtDesc?.toLowerCase().includes(searchTerm.toLowerCase()) || false;  
+      const matchesArtNo = item.ArtNo?.toLowerCase().includes(searchTerm.toLowerCase()) || false;
 
       const matchesClauses = item.Clauses?.some(clause =>
         clause.ClauseDesc.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -27,7 +28,7 @@ const App: React.FC = () => {
         explanation.Explanation.toLowerCase().includes(searchTerm.toLowerCase())
       ) || false; 
 
-      return matchesName || matchesSubHeading || matchesArtDesc || matchesClauses || matchesExplanations;
+      return matchesName || matchesSubHeading || matchesArtDesc || matchesArtNo || matchesClauses || matchesExplanations;
     });
   }, [searchTerm]);
 

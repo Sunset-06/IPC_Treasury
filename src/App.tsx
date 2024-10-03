@@ -1,13 +1,8 @@
-import './App.css'
-import SearchPage from './pages/SearchPage';
+import React from "react";
+import Router from "./Router";
 
 function App() {
-
-  return (
-    <>
-      <SearchPage></SearchPage>
-    </>
-  );
+  return <Router></Router>;
 }
 
-export default App
+export default App;

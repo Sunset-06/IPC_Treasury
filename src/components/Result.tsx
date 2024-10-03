@@ -1,6 +1,7 @@
 import React from 'react';
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Box } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Link } from 'react-router-dom';
 import { Item } from '../types';
 
 interface ResultProps {
@@ -15,28 +16,37 @@ const Result: React.FC<ResultProps> = ({ items }) => {
         borderRadius: '20px',
         padding: '2em',
         textAlign: 'center',
-        color: 'white', 
+        color: 'white',
       }}
     >
       {items.length === 0 ? (
         <Typography variant="h5" sx={{ color: "white" }}>Search something...</Typography>
       ) : (
         items.map(item => (
-          <Accordion 
+          <Accordion
             key={item.ArtNo}
-            sx={{ 
-              marginBottom: '1em', 
-              backgroundColor: 'rgba(255, 2555, 255, 0.3)',
-              color: 'black', 
+            square={false}
+            sx={{
+              marginBottom: '1em',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              color: 'black',
               borderRadius: '25px',
-              minheight:"200px",
+              overflow: 'hidden',
+              minHeight: "200px",
             }}
           >
-            <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}>
-              <Typography variant='h6' >{item.Name}</Typography>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
+            >
+              <Typography variant='h6' sx={{color:  'white'}}>{item.Name}</Typography>
             </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{(item.ArtDesc)? item.ArtDesc:"No Description"}</Typography>
+            <AccordionDetails sx={{color:  'white '}}>
+              <Typography variant="body1">{item.ArtDesc ? item.ArtDesc : "No Description"}</Typography>
+              <Link to={`/art/${item.ArtNo}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Typography variant='body2' sx={{ marginTop: '3em', textDecoration: 'underline', "&:hover":{color:'lime'} }}>
+                  Read More
+                </Typography>
+              </Link>
             </AccordionDetails>
           </Accordion>
         ))
@@ -45,4 +55,4 @@ const Result: React.FC<ResultProps> = ({ items }) => {
   );
 };
 
-export default Result;
+export default Result;  

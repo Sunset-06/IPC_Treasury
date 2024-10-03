@@ -31,7 +31,7 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
         padding: '20px' 
       }}
     >
-        <Typography variant='h4' color='white'>IPC Treasury</Typography>
+        <Typography variant='h4' color='white' whiteSpace='nowrap' marginRight="1em">IPC Treasury</Typography>
         <Box sx={{display:"flex",flexDirection:"row", alignItems:"center"}}>
         <input
           value={inputValue}
@@ -48,17 +48,18 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
         <Button
           type="submit"
           variant="contained"
-          color="primary"
+          color='primary'
           style={{
             borderRadius: '50px',
             height: '3em', 
             minWidth: '3em',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            /* background: 'lime' */
           }}
         >
-          <SearchRounded />
+          <SearchRounded sx={{color: 'black'}}/>
         </Button>
     </Box>
     </Box>
