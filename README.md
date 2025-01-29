@@ -2,7 +2,7 @@
 
 This is a Project made for the 21DSC201P/Design Thinking and Methodology Course.
 
-The IPC Treasury platform allows you to search for a specific term in the Constitution of India, And provides Information about it.
+The IPC Treasury platform allows you to search for a specific term in the Constitution of India, And provides Information about it. You also have the option of summarising the specific text and translatinng into a local Indic language using Gemini.
 
 The COI.json file was obtained from [this repository](https://github.com/Yash-Handa/The_Constitution_Of_India)
 
